@@ -1,0 +1,26 @@
+[
+  {
+    "id": 13,
+    "title": "War and Peace",
+    "author": "Leo Tolstoy",
+    "url": "https://images-us.bookshop.org/ingram/9781400079988.jpg",
+    "price": "$22.00",
+    "quantity": 3
+  },
+  {
+    "url": "https://images-us.bookshop.org/ingram/9780143107026.jpg",
+    "title": "The Lady of the Camellias",
+    "author": "Alexandre Dumas",
+    "price": "$17.00",
+    "id": 2,
+    "quantity": 3
+  },
+  {
+    "url": "https://images-us.bookshop.org/ingram/9780140449266.jpg",
+    "title": "The Count of Monte Cristo",
+    "author": "Alexandre Dumas",
+    "price": "$15.20",
+    "id": 1,
+    "quantity": 1
+  }
+]
