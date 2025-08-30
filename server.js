@@ -40,6 +40,18 @@ app.get("/api/posts", (req, res) => {
     res.json(data);
 });
 
+app.get("/api/posts/:id", (req, res) => {
+    const data = readData(postsPath)
+     const postId = parseInt(req.params.id);
+    const post = data.find(item => item.id === postId)
+    if(!post) {
+        res.status(404).json({message: 'Пост не найден'})
+        return
+    }
+
+    res.json(post)
+})
+
 // Добавление нового пользователя с автоинкрементным `id`
 app.post("/api/users", (req, res) => {
     const newUser = req.body;
@@ -62,8 +74,6 @@ app.post("/api/users", (req, res) => {
 
 app.post("/api/posts", (req, res) => {
     const newPost = req.body;
-    
-   
 
     const data = readData(postsPath);
     // Найти максимальный ID и увеличить на 1
