@@ -56,8 +56,8 @@ app.get("/api/posts/:id", (req, res) => {
 app.post("/api/users", (req, res) => {
     const newUser = req.body;
     
-    if (!newUser.name || !newUser.age) {
-        return res.status(400).json({ error: "Имя и возраст обязательны" });
+    if (!newUser.name || !newUser.age || !newUser.lastName) {
+        return res.status(400).json({ error: "Имя, фамилия и возраст обязательны" });
     }
 
     const data = readData(filePath);
