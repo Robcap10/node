@@ -56,7 +56,7 @@ app.get("/api/posts/:id", (req, res) => {
 app.post("/api/users", (req, res) => {
     const newUser = req.body;
     
-    if (!newUser.name || !newUser.age || !newUser.lastName || !newUser.password || !newUser.email) {
+    if (!newUser.name || !newUser.birthDate || !newUser.lastName || !newUser.password || !newUser.email) {
         return res.status(400).json({ error: "Имя, фамилия и возраст обязательны" });
     } 
 
