@@ -1,20 +1,10 @@
-{
-  "users": [
+ [
     {
-      "name": "Ռոբ",
-      "age": 24,
+      "firstName": "admin",
+      "lastName" : "adminyan"
+      "email": "admin@admin.com"
+      "age": "unknow",
+      "password": "admin",
       "id": 1
     },
-    {
-      "name": "Նարե",
-      "age": 17,
-      "id": 2
-    },
-    {
-      "name": "Աշոտ",
-      "age": 31,
-      "id": 3,
-      "email": "ashot@gmail.com"
-    }
   ]
-}
