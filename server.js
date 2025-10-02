@@ -31,12 +31,12 @@ app.get("/api/users", (req, res) => {
     res.json(data);
 });
 
-app.get("/api/posts/:id", (req, res) => {
+app.get("/api/users/:id", (req, res) => {
     const data = readData(filePath)
      const postId = parseInt(req.params.id);
     const user = data.find(item => item.id === postId)
-    if(!post) {
-        res.status(404).json({message: 'Пост не найден'})
+    if(!user) {
+        res.status(404).json({message: 'пользователь не найден'})
         return
     }
 
