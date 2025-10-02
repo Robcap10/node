@@ -66,7 +66,7 @@ app.get("/api/posts/:id", (req, res) => {
 
 // Добавление нового пользователя с автоинкрементным `id`
 app.post("/api/users", (req, res) => {
-    const newUser = JSON.parse(req.body);
+    const newUser = req.body;
     
     
     if (!newUser.firstName || !newUser.birthDate || !newUser.lastName || !newUser.password || !newUser.email) {
@@ -76,7 +76,7 @@ app.post("/api/users", (req, res) => {
     const data = readData(filePath);
 
     // Найти максимальный ID и увеличить на 1
-    const maxId = data.users.length > 0 ? Math.max(...data.users.map(user => user.id)) : 0;
+    const maxId = data.length > 0 ? Math.max(...data.map(user => user.id)) : 0;
     newUser.id = maxId + 1;
 
     data.push(newUser);
