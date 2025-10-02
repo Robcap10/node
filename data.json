@@ -1,8 +1,8 @@
  [
     {
       "firstName": "admin",
-      "lastName" : "adminyan"
-      "email": "admin@admin.com"
+      "lastName" : "adminyan",
+      "email": "admin@admin.com",
       "age": "unknow",
       "password": "admin",
       "id": 1
