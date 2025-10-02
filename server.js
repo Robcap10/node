@@ -66,7 +66,8 @@ app.get("/api/posts/:id", (req, res) => {
 
 // Добавление нового пользователя с автоинкрементным `id`
 app.post("/api/users", (req, res) => {
-    const newUser = req.body;
+    const newUser = JSON.parse(req.body);
+    
     
     if (!newUser.firstName || !newUser.birthDate || !newUser.lastName || !newUser.password || !newUser.email) {
         return res.status(400).json({ error: "Имя, фамилия, электронный адресс, возраст и пороль обязательны" });
