@@ -31,6 +31,18 @@ app.get("/api/users", (req, res) => {
     res.json(data);
 });
 
+app.get("/api/posts/:id", (req, res) => {
+    const data = readData(filePath)
+     const postId = parseInt(req.params.id);
+    const user = data.find(item => item.id === postId)
+    if(!post) {
+        res.status(404).json({message: 'Пост не найден'})
+        return
+    }
+
+    res.json(user)
+})
+
 app.get("/api/books", (req, res) => {
     const data = readData(booksPath);
     res.json(data);
@@ -56,7 +68,7 @@ app.get("/api/posts/:id", (req, res) => {
 app.post("/api/users", (req, res) => {
     const newUser = req.body;
     
-    if (!newUser.name || !newUser.birthDate || !newUser.lastName || !newUser.password || !newUser.email) {
+    if (!newUser.firstName || !newUser.birthDate || !newUser.lastName || !newUser.password || !newUser.email) {
         return res.status(400).json({ error: "Имя, фамилия, электронный адресс, возраст и пороль обязательны" });
     } 
 
@@ -66,7 +78,7 @@ app.post("/api/users", (req, res) => {
     const maxId = data.users.length > 0 ? Math.max(...data.users.map(user => user.id)) : 0;
     newUser.id = maxId + 1;
 
-    data.users.push(newUser);
+    data.push(newUser);
     writeData(filePath, data);
 
     res.status(201).json({ message: "Пользователь добавлен", user: newUser });
