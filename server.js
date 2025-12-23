@@ -105,13 +105,13 @@ app.delete("/api/users/:id", (req, res) => {
     const userId = parseInt(req.params.id); // Преобразуем id в число
     const data = readData(filePath);
 
-    const userIndex = data.users.findIndex(user => user.id === userId);
+    const userIndex = data.findIndex(user => user.id === userId);
     if (userIndex === -1) {
         return res.status(404).json({ error: "Пользователь не найден" });
     }
 
     // Удаляем пользователя из массива
-    const deletedUser = data.users.splice(userIndex, 1)[0];
+    const deletedUser = data.splice(userIndex, 1)[0];
 
     // Записываем обновленные данные обратно в файл
     writeData(filePath, data);
@@ -143,13 +143,13 @@ app.put("/api/users/:id", (req, res) => {
     const data = readData(filePath);
 
     // Ищем пользователя
-    const userIndex = data.users.findIndex(user => user.id === userId);
+    const userIndex = data.findIndex(user => user.id === userId);
     if (userIndex === -1) {
         return res.status(404).json({ error: "Пользователь не найден" });
     }
 
     // Обновляем данные пользователя
-    data.users[userIndex] = { ...data.users[userIndex], ...updatedUser };
+    data.users[userIndex] = { ...data[userIndex], ...updatedUser };
 
     writeData(filePath, data); // Записываем обратно в файл
 
@@ -183,7 +183,7 @@ app.patch("/api/users/:id", (req, res) => {
     const data = readData(filePath);
 
     // Ищем пользователя
-    const user = data.users.find(user => user.id === userId);
+    const user = data.find(user => user.id === userId);
     if (!user) {
         return res.status(404).json({ error: "Пользователь не найден" });
     }
