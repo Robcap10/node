@@ -141,9 +141,10 @@ app.put("/api/users/:id", (req, res) => {
     const userId = parseInt(req.params.id); // Преобразуем id в число
     const updatedUser = req.body; // Новые данные
     const data = readData(filePath);
-
+    console.log(data)
     // Ищем пользователя
     const userIndex = data.findIndex(user => user.id === userId);
+    console.log(userIndex)
     if (userIndex === -1) {
         return res.status(404).json({ error: "Пользователь не найден" });
     }
