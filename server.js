@@ -149,7 +149,7 @@ app.put("/api/users/:id", (req, res) => {
     }
 
     // Обновляем данные пользователя
-    data.users[userIndex] = { ...data[userIndex], ...updatedUser };
+    data[userIndex] = { ...data[userIndex], ...updatedUser };
 
     writeData(filePath, data); // Записываем обратно в файл
 
