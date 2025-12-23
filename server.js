@@ -154,7 +154,7 @@ app.put("/api/users/:id", (req, res) => {
 
     writeData(filePath, data); // Записываем обратно в файл
 
-    res.json({ message: "Пользователь обновлен", user: data.users[userIndex] });
+    res.json({ message: "Пользователь обновлен", user: data[userIndex] });
 });
 app.put("/api/posts/:id", (req, res) => {
     const postId = parseInt(req.params.id); // Преобразуем id в число
